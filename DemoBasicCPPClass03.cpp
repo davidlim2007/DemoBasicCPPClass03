@@ -55,14 +55,10 @@ void DoTest2()
 
 	std::vector<CPerson> vecPerson;
 
-	// push_back() invokes the following:
-	//
-	// 1. The copy constructors of the objects already inserted into vecPerson.
-	// 2. The destructors of the aforementioned objects.
-	// 3. The copy constructor of the object to be inserted.
-	//
-	// If the vector is empty, only the copy constructor of the object to be inserted
-	// is invoked.
+	// push_back() invokes the copy constructor of the
+        // object to be inserted, as well as other functions
+        // (e.g. the destructor) of its existing objects as
+        // part of an internal reorganization process.
 	vecPerson.push_back(person1);
 	vecPerson.push_back(person2);
 	vecPerson.push_back(person3);
